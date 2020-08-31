@@ -108,8 +108,6 @@ const chartConfig = {
 | barRadius                     | Number             | Defines the radius of each bar                                                                         |
 | propsForBackgroundLines       | props              | Override styles of the background lines, refer to react-native-svg's Line documentation                |
 | propsForLabels                | props              | Override styles of the labels, refer to react-native-svg's Text documentation                          |
-| propsForVerticalLabels        | props              | Override styles of vertical labels, refer to react-native-svg's Text documentation                     |
-| propsForHorizontalLabels      | props              | Override styles of horizontal labels, refer to react-native-svg's Text documentation                   |
 
 ## Responsive charts
 
@@ -265,7 +263,7 @@ const data = {
 | data                    | Object          | Data for the chart - see example above                                                      |
 | width                   | Number          | Width of the chart, use 'Dimensions' library to get the width of your screen for responsive |
 | height                  | Number          | Height of the chart                                                                         |
-| withVerticalLabels      | boolean         | Show vertical labels - default: True                                                        |
+| withVerticalLables      | boolean         | Show vertical labels - default: True                                                        |
 | withHorizontalLabels    | boolean         | Show horizontal labels - default: True                                                      |
 | fromZero                | boolean         | Render charts from 0 not from the minimum value. - default: False                           |
 | withInnerLines          | boolean         | Show inner dashed lines - default: True                                                     |
