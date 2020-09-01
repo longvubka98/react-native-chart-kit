@@ -108,7 +108,7 @@ var StackedBarChart = /** @class */ (function (_super) {
         }
         var stackedBar = data.legend && data.legend.length == 0 ? false : true;
         return (<View style={style}>
-        <Svg height={height} width={width}>
+        <Svg height={height} width={width-120}>
           {this.renderDefs(__assign(__assign({}, config), this.props.chartConfig))}
           <Rect width="100%" height={height} rx={borderRadius} ry={borderRadius} fill="url(#backgroundGradient)"/>
           <G>
@@ -130,9 +130,9 @@ var StackedBarChart = /** @class */ (function (_super) {
           <G>
             {this.renderBars(__assign(__assign({}, config), { data: data.data, border: border, colors: this.props.data.barColors, paddingTop: paddingTop, paddingRight: paddingRight + 20, stackedBar: stackedBar }))}
           </G>
-          {data.legend &&
+          {/* {data.legend &&
             data.legend.length != 0 &&
-            this.renderLegend(__assign(__assign({}, config), { legend: data.legend, colors: this.props.data.barColors }))}
+            this.renderLegend(__assign(__assign({}, config), { legend: data.legend, colors: this.props.data.barColors }))} */}
         </Svg>
       </View>);
     };
