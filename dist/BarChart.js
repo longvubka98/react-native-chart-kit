@@ -76,7 +76,7 @@ var BarChart = /** @class */ (function (_super) {
     BarChart.prototype.render = function () {
         var _a;
         var _b = this.props, width = _b.width, height = _b.height, data = _b.data, _c = _b.style, style = _c === void 0 ? {} : _c, _d = _b.withHorizontalLabels, withHorizontalLabels = _d === void 0 ? true : _d, _e = _b.withVerticalLabels, withVerticalLabels = _e === void 0 ? true : _e, _f = _b.verticalLabelRotation, verticalLabelRotation = _f === void 0 ? 0 : _f, _g = _b.horizontalLabelRotation, horizontalLabelRotation = _g === void 0 ? 0 : _g, _h = _b.withInnerLines, withInnerLines = _h === void 0 ? true : _h, _j = _b.showBarTops, showBarTops = _j === void 0 ? true : _j, _k = _b.showValuesOnTopOfBars, showValuesOnTopOfBars = _k === void 0 ? false : _k, _l = _b.segments, segments = _l === void 0 ? 4 : _l;
-        var _m = style.borderRadius, borderRadius = _m === void 0 ? 0 : _m, _o = style.paddingTop, paddingTop = _o === void 0 ? 16 : _o, _p = style.paddingRight, paddingRight = _p === void 0 ? 64 : _p, _q = _b.formatYLabel, formatYLabel = _q === void 0 ? function (yLabel) { return yLabel; } : _q;
+        var _m = style.borderRadius, borderRadius = _m === void 0 ? 0 : _m, _o = style.paddingTop, paddingTop = _o === void 0 ? 16 : _o, _p = style.paddingRight, paddingRight = _p === void 0 ? 64 : _p;
         var config = {
             width: width,
             height: height,
@@ -104,7 +104,7 @@ var BarChart = /** @class */ (function (_super) {
           </G>
           <G>
             {withHorizontalLabels
-            ? this.renderHorizontalLabels(__assign(__assign({}, config), { count: segments, data: data.datasets[0].data, paddingTop: paddingTop, paddingRight: paddingRight, formatYLabel: formatYLabel }))
+            ? this.renderHorizontalLabels(__assign(__assign({}, config), { count: segments, data: data.datasets[0].data, paddingTop: paddingTop, paddingRight: paddingRight }))
             : null}
           </G>
           <G>
