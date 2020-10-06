@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
+    __assign = Object.assign || function (t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -93,7 +93,7 @@ var LineChart = /** @class */ (function (_super) {
                     };
                     output.push(<Circle key={Math.random()} cx={cx} cy={cy} fill={typeof getDotColor === "function"
                         ? getDotColor(x, i)
-                        : _this.getColor(dataset, 0.9)} onPress={onPress} {..._this.getPropsForDots(x, i)}/>, <Circle key={Math.random()} cx={cx} cy={cy} r="14" fill="#fff" fillOpacity={0} onPress={onPress}/>, renderDotContent({ x: cx, y: cy, index: i }));
+                        : _this.getColor(dataset, 0.9)} onPress={onPress} {..._this.getPropsForDots(x, i)} />, <Circle key={Math.random()} cx={cx} cy={cy} r="14" fill="#fff" fillOpacity={0} onPress={onPress} />, renderDotContent({ x: cx, y: cy, index: i }));
                 });
             });
             return output;
@@ -180,7 +180,7 @@ var LineChart = /** @class */ (function (_super) {
                     yValues.push(yval);
                     var xval = paddingRight +
                         ((dataset.data.length - index - 1) * (width - paddingRight)) /
-                            dataset.data.length;
+                        dataset.data.length;
                     xValues.push(xval);
                     yValuesLabel.push(yval - (scrollableInfoSize.height + scrollableInfoOffset));
                     xValuesLabel.push(xval - scrollableInfoSize.width / 2);
@@ -217,13 +217,13 @@ var LineChart = /** @class */ (function (_super) {
                             height: scrollableInfoSize.height
                         }
                     ]}>
-          <TextInput onLayout={function () {
-                        _this.label.current.setNativeProps({
-                            text: scrollableInfoTextDecorator(Math.floor(data[0].data[data[0].data.length - 1]))
-                        });
-                    }} style={scrollableInfoTextStyle} ref={_this.label}/>
-        </Animated.View>,
-                    <AnimatedCircle key={Math.random()} cx={translateX} cy={translateY} r={scrollableDotRadius} stroke={scrollableDotStrokeColor} strokeWidth={scrollableDotStrokeWidth} fill={scrollableDotFill}/>
+                        <TextInput onLayout={function () {
+                            _this.label.current.setNativeProps({
+                                text: scrollableInfoTextDecorator(Math.floor(data[0].data[data[0].data.length - 1]))
+                            });
+                        }} style={scrollableInfoTextStyle} ref={_this.label} />
+                    </Animated.View>,
+                    <AnimatedCircle key={Math.random()} cx={translateX} cy={translateY} r={scrollableDotRadius} stroke={scrollableDotStrokeColor} strokeWidth={scrollableDotStrokeWidth} fill={scrollableDotFill} />
                 ]);
             });
             return output;
@@ -245,17 +245,17 @@ var LineChart = /** @class */ (function (_super) {
             return data.map(function (dataset, index) {
                 return (<Polygon key={index} points={dataset.data
                     .map(function (d, i) {
-                    var x = paddingRight +
-                        (i * (width - paddingRight)) / dataset.data.length;
-                    var y = ((baseHeight - _this.calcHeight(d, datas, height)) / 4) * 3 +
-                        paddingTop;
-                    return x + "," + y;
-                })
+                        var x = paddingRight +
+                            (i * (width - paddingRight)) / dataset.data.length;
+                        var y = ((baseHeight - _this.calcHeight(d, datas, height)) / 4) * 3 +
+                            paddingTop;
+                        return x + "," + y;
+                    })
                     .join(" ") +
                     (" " + (paddingRight +
                         ((width - paddingRight) / dataset.data.length) *
-                            (dataset.data.length - 1)) + "," + ((height / 4) * 3 +
-                        paddingTop) + " " + paddingRight + "," + ((height / 4) * 3 + paddingTop))} fill={"url(#fillShadowGradient" + (useColorFromDataset ? "_" + index : "") + ")"} strokeWidth={0}/>);
+                        (dataset.data.length - 1)) + "," + ((height / 4) * 3 +
+                            paddingTop) + " " + paddingRight + "," + ((height / 4) * 3 + paddingTop))} fill={"url(#fillShadowGradient" + (useColorFromDataset ? "_" + index : "") + ")"} strokeWidth={0} />);
             });
         };
         _this.renderLine = function (_a) {
@@ -283,7 +283,7 @@ var LineChart = /** @class */ (function (_super) {
                     lastPoint = x + "," + y;
                     return x + "," + y;
                 });
-                output.push(<Polyline key={index} strokeLinejoin={linejoinType} points={points.join(" ")} fill="none" stroke={_this.getColor(dataset, 0.2)} strokeWidth={_this.getStrokeWidth(dataset)}/>);
+                output.push(<Polyline key={index} strokeLinejoin={linejoinType} points={points.join(" ")} fill="none" stroke={_this.getColor(dataset, 0.2)} strokeWidth={_this.getStrokeWidth(dataset)} />);
             });
             return output;
         };
@@ -303,13 +303,13 @@ var LineChart = /** @class */ (function (_super) {
             };
             return ["M" + x(0) + "," + y(0)]
                 .concat(dataset.data.slice(0, -1).map(function (_, i) {
-                var x_mid = (x(i) + x(i + 1)) / 2;
-                var y_mid = (y(i) + y(i + 1)) / 2;
-                var cp_x1 = (x_mid + x(i)) / 2;
-                var cp_x2 = (x_mid + x(i + 1)) / 2;
-                return ("Q " + cp_x1 + ", " + y(i) + ", " + x_mid + ", " + y_mid +
-                    (" Q " + cp_x2 + ", " + y(i + 1) + ", " + x(i + 1) + ", " + y(i + 1)));
-            }))
+                    var x_mid = (x(i) + x(i + 1)) / 2;
+                    var y_mid = (y(i) + y(i + 1)) / 2;
+                    var cp_x1 = (x_mid + x(i)) / 2;
+                    var cp_x2 = (x_mid + x(i + 1)) / 2;
+                    return ("Q " + cp_x1 + ", " + y(i) + ", " + x_mid + ", " + y_mid +
+                        (" Q " + cp_x2 + ", " + y(i + 1) + ", " + x(i + 1) + ", " + y(i + 1)));
+                }))
                 .join(" ");
         };
         _this.renderBezierLine = function (_a) {
@@ -322,7 +322,7 @@ var LineChart = /** @class */ (function (_super) {
                     paddingTop: paddingTop,
                     data: data
                 });
-                return (<Path key={index} d={result} fill="none" stroke={_this.getColor(dataset, 0.2)} strokeWidth={_this.getStrokeWidth(dataset)}/>);
+                return (<Path key={index} d={result} fill="none" stroke={_this.getColor(dataset, 0.2)} strokeWidth={_this.getStrokeWidth(dataset)} />);
             });
         };
         _this.renderBezierShadow = function (_a) {
@@ -337,17 +337,19 @@ var LineChart = /** @class */ (function (_super) {
                 }) +
                     (" L" + (paddingRight +
                         ((width - paddingRight) / dataset.data.length) *
-                            (dataset.data.length - 1)) + "," + ((height / 4) * 3 +
-                        paddingTop) + " L" + paddingRight + "," + ((height / 4) * 3 + paddingTop) + " Z");
-                return (<Path key={index} d={d} fill={"url(#fillShadowGradient" + (useColorFromDataset ? "_" + index : "") + ")"} strokeWidth={0}/>);
+                        (dataset.data.length - 1)) + "," + ((height / 4) * 3 +
+                            paddingTop) + " L" + paddingRight + "," + ((height / 4) * 3 + paddingTop) + " Z");
+                return (<Path key={index} d={d} fill={"url(#fillShadowGradient" + (useColorFromDataset ? "_" + index : "") + ")"} strokeWidth={0} />);
             });
         };
         _this.renderLegend = function (width, legendOffset) {
             var _a = _this.props.data, legend = _a.legend, datasets = _a.datasets;
             var baseLegendItemX = width / (legend.length + 1);
-            return legend.map(function (legendItem, i) { return (<G key={Math.random()}>
-        <LegendItem index={i} iconColor={_this.getColor(datasets[i], 0.9)} baseLegendItemX={baseLegendItemX} legendText={legendItem} labelProps={__assign({}, _this.getPropsForLabels())} legendOffset={legendOffset}/>
-      </G>); });
+            return legend.map(function (legendItem, i) {
+                return (<G key={Math.random()}>
+                    <LegendItem index={i} iconColor={_this.getColor(datasets[i], 0.9)} baseLegendItemX={baseLegendItemX} legendText={legendItem} labelProps={__assign({}, _this.getPropsForLabels())} legendOffset={legendOffset} />
+                </G>);
+            });
         };
         return _this;
     }
@@ -369,69 +371,77 @@ var LineChart = /** @class */ (function (_super) {
         }
         var legendOffset = this.props.data.legend ? height * 0.15 : 0;
         return (<View style={style}>
-        <Svg height={height + paddingBottom + legendOffset} width={width - margin * 2 - marginRight}>
-          <Rect width="100%" height={height + legendOffset} rx={borderRadius} ry={borderRadius} fill="url(#backgroundGradient)" fillOpacity={transparent ? 0 : 1}/>
-          {this.props.data.legend &&
-            this.renderLegend(config.width, legendOffset)}
-          <G x="0" y={legendOffset}>
-            {this.renderDefs(__assign(__assign(__assign({}, config), chartConfig), { data: data.datasets }))}
-            <G>
-              {withHorizontalLines &&
-            (withInnerLines
-                ? this.renderHorizontalLines(__assign(__assign({}, config), { count: count, paddingTop: paddingTop,
-                    paddingRight: paddingRight }))
-                : withOuterLines
-                    ? this.renderHorizontalLine(__assign(__assign({}, config), { paddingTop: paddingTop,
-                        paddingRight: paddingRight }))
-                    : null)}
-            </G>
-            <G>
-              {withHorizontalLabels &&
-            this.renderHorizontalLabels(__assign(__assign({}, config), { count: count, data: datas, paddingTop: paddingTop, paddingRight: paddingRight, formatYLabel: formatYLabel, decimalPlaces: chartConfig.decimalPlaces }))}
-            </G>
-            <G>
-              {withVerticalLines &&
-            (withInnerLines
-                ? this.renderVerticalLines(__assign(__assign({}, config), { data: data.datasets[0].data, paddingTop: paddingTop, paddingRight: paddingRight }))
-                : withOuterLines
-                    ? this.renderVerticalLine(__assign(__assign({}, config), { paddingTop: paddingTop, paddingRight: paddingRight }))
-                    : null)}
-            </G>
-            <G>
-              {withVerticalLabels &&
-            this.renderVerticalLabels(__assign(__assign({}, config), { labels: labels, paddingTop: paddingTop, paddingRight: paddingRight, formatXLabel: formatXLabel }))}
-            </G>
-            <G>
-              {this.renderLine(__assign(__assign(__assign({}, config), chartConfig), { paddingRight: paddingRight, paddingTop: paddingTop, data: data.datasets }))}
-            </G>
-            <G>
-              {withShadow &&
-            this.renderShadow(__assign(__assign({}, config), { data: data.datasets, paddingRight: paddingRight, paddingTop: paddingTop, useColorFromDataset: chartConfig.useShadowColorFromDataset }))}
-            </G>
-            <G>
-              {withDots &&
-            this.renderDots(__assign(__assign({}, config), { data: data.datasets, paddingTop: paddingTop, paddingRight: paddingRight, onDataPointClick: onDataPointClick }))}
-            </G>
-            <G>
-              {withScrollableDot &&
-            this.renderScrollableDot(__assign(__assign(__assign({}, config), chartConfig), { data: data.datasets, paddingTop: paddingTop, paddingRight: paddingRight, onDataPointClick: onDataPointClick,
-                scrollableDotHorizontalOffset: scrollableDotHorizontalOffset }))}
-            </G>
-            <G>
-              {decorator &&
-            decorator(__assign(__assign({}, config), { data: data.datasets, paddingTop: paddingTop,
-                paddingRight: paddingRight }))}
-            </G>
-          </G>
-        </Svg>
-        {withScrollableDot && (<ScrollView style={StyleSheet.absoluteFill} contentContainerStyle={{ width: width * 2 }} showsHorizontalScrollIndicator={false} scrollEventThrottle={16} onScroll={Animated.event([
-            {
-                nativeEvent: {
-                    contentOffset: { x: scrollableDotHorizontalOffset }
+            <Svg height={height + paddingBottom + legendOffset} width={width - margin * 2 - marginRight + (this.props.chartConfig.x || 0)}>
+                <Rect width="100%" height={height + legendOffset} rx={borderRadius} ry={borderRadius} fill="url(#backgroundGradient)" fillOpacity={transparent ? 0 : 1} />
+                {this.props.data.legend &&
+                    this.renderLegend(config.width, legendOffset)}
+                <G x={this.props.chartConfig.x||0} y={legendOffset}>
+                    {this.renderDefs(__assign(__assign(__assign({}, config), chartConfig), { data: data.datasets }))}
+                    <G>
+                        {withHorizontalLines &&
+                            (withInnerLines
+                                ? this.renderHorizontalLines(__assign(__assign({}, config), {
+                                    count: count, paddingTop: paddingTop,
+                                    paddingRight: paddingRight
+                                }))
+                                : withOuterLines
+                                    ? this.renderHorizontalLine(__assign(__assign({}, config), {
+                                        paddingTop: paddingTop,
+                                        paddingRight: paddingRight
+                                    }))
+                                    : null)}
+                    </G>
+                    <G>
+                        {withHorizontalLabels &&
+                            this.renderHorizontalLabels(__assign(__assign({}, config), { count: count, data: datas, paddingTop: paddingTop, paddingRight: paddingRight, formatYLabel: formatYLabel, decimalPlaces: chartConfig.decimalPlaces }))}
+                    </G>
+                    <G>
+                        {withVerticalLines &&
+                            (withInnerLines
+                                ? this.renderVerticalLines(__assign(__assign({}, config), { data: data.datasets[0].data, paddingTop: paddingTop, paddingRight: paddingRight }))
+                                : withOuterLines
+                                    ? this.renderVerticalLine(__assign(__assign({}, config), { paddingTop: paddingTop, paddingRight: paddingRight }))
+                                    : null)}
+                    </G>
+                    <G>
+                        {withVerticalLabels &&
+                            this.renderVerticalLabels(__assign(__assign({}, config), { labels: labels, paddingTop: paddingTop, paddingRight: paddingRight, formatXLabel: formatXLabel }))}
+                    </G>
+                    <G>
+                        {this.renderLine(__assign(__assign(__assign({}, config), chartConfig), { paddingRight: paddingRight, paddingTop: paddingTop, data: data.datasets }))}
+                    </G>
+                    <G>
+                        {withShadow &&
+                            this.renderShadow(__assign(__assign({}, config), { data: data.datasets, paddingRight: paddingRight, paddingTop: paddingTop, useColorFromDataset: chartConfig.useShadowColorFromDataset }))}
+                    </G>
+                    <G>
+                        {withDots &&
+                            this.renderDots(__assign(__assign({}, config), { data: data.datasets, paddingTop: paddingTop, paddingRight: paddingRight, onDataPointClick: onDataPointClick }))}
+                    </G>
+                    <G>
+                        {withScrollableDot &&
+                            this.renderScrollableDot(__assign(__assign(__assign({}, config), chartConfig), {
+                                data: data.datasets, paddingTop: paddingTop, paddingRight: paddingRight, onDataPointClick: onDataPointClick,
+                                scrollableDotHorizontalOffset: scrollableDotHorizontalOffset
+                            }))}
+                    </G>
+                    <G>
+                        {decorator &&
+                            decorator(__assign(__assign({}, config), {
+                                data: data.datasets, paddingTop: paddingTop,
+                                paddingRight: paddingRight
+                            }))}
+                    </G>
+                </G>
+            </Svg>
+            {withScrollableDot && (<ScrollView style={StyleSheet.absoluteFill} contentContainerStyle={{ width: width * 2 }} showsHorizontalScrollIndicator={false} scrollEventThrottle={16} onScroll={Animated.event([
+                {
+                    nativeEvent: {
+                        contentOffset: { x: scrollableDotHorizontalOffset }
+                    }
                 }
-            }
-        ])} horizontal bounces={false}/>)}
-      </View>);
+            ])} horizontal bounces={false} />)}
+        </View>);
     };
     return LineChart;
 }(AbstractChart));
